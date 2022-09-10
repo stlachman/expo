@@ -63,10 +63,10 @@ export function createProxyForNativeModules(NativeModules) {
                     target.NativeUnimoduleProxy?.modulesConstants.ExponentConstants?.executionEnvironment ===
                         ExecutionEnvironment.StoreClient;
                 if (isRunningInStoreClient) {
-                    throw new Error(createErrorMessageForStoreClient(prop));
+                    // throw new Error(createErrorMessageForStoreClient(prop));
                 }
                 else if (target.EXDevLauncher) {
-                    throw new Error(createErrorMessageForDevelopmentBuild(prop));
+                    // throw new Error(createErrorMessageForDevelopmentBuild(prop));
                 }
             }
             return value;

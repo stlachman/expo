@@ -1,11 +1,11 @@
 require 'json'
 
-package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
+package = JSON.parse(File.read(File.join(__dir__, '..', 'package.json')))
 
 # Following the example of react-native-firebase
 # https://github.com/invertase/react-native-firebase/blob/bf5271ef46b534d3363206f816d114f9ac5c59ee/packages/app/RNFBApp.podspec#L5-L10
 
-sd_web_image_version = '~> 5.0'
+sd_web_image_version = '~> 5.13'
 using_custom_sd_web_image_version = defined? $SDWebImageVersion
 if using_custom_sd_web_image_version
   sd_web_image_version = $SDWebImageVersion
@@ -20,7 +20,7 @@ if using_custom_sd_web_image_webp_coder_version
 end
 
 Pod::Spec.new do |s|
-  s.name           = 'EXImage'
+  s.name           = 'ExpoImage'
   s.version        = package['version']
   s.summary        = package['description']
   s.description    = package['description']
@@ -28,16 +28,27 @@ Pod::Spec.new do |s|
   s.author         = package['author']
   s.homepage       = package['homepage']
   s.platform       = :ios, '12.0'
+  s.swift_version  = '5.4'
   s.source         = { git: 'https://github.com/expo/expo.git' }
-  s.static_framework = true
+  s.static_framework = false
 
-  s.source_files = "ios/**/*.{h,m}"
-  s.requires_arc = true
-
+  s.dependency 'ExpoModulesCore'
   s.dependency 'React-Core'
 
   s.dependency 'SDWebImage', sd_web_image_version
-  s.dependency 'SDWebImageWebPCoder', sd_web_image_webp_coder
-  s.dependency 'SDWebImageSVGKitPlugin', '~> 1.3'
-  s.dependency 'SVGKit', '~> 2.1'
+  # s.dependency 'SDWebImageWebPCoder', sd_web_image_webp_coder
+  # s.dependency 'SDWebImageSVGKitPlugin', '~> 1.3'
+  # s.dependency 'SVGKit', '~> 2.1'
+
+  # Swift/Objective-C compatibility
+  s.pod_target_xcconfig = {
+    # 'DEFINES_MODULE' => 'YES'
+  }
+
+  if !$ExpoUseSources&.include?(package['name']) && ENV['EXPO_USE_SOURCE'].to_i == 0 && File.exist?("#{s.name}.xcframework") && Gem::Version.new(Pod::VERSION) >= Gem::Version.new('1.10.0')
+    s.source_files = "**/*.h"
+    s.vendored_frameworks = "#{s.name}.xcframework"
+  else
+    s.source_files = "**/*.{h,m,swift}"
+  end
 end

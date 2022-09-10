@@ -43,3 +43,33 @@ export interface ImageErrorEventData {
   };
   android?: AndroidGlideException | null;
 }
+
+// New
+
+export type ImageProps = {
+  source: any;
+  transition: ImageTransition;
+};
+
+export type ImageTransition = {
+  duration?: number;
+  timing?: ImageTransitionTiming;
+};
+
+export enum ImageTransitionTiming {
+  EASE_IN_OUT = 1,
+  EASE_IN = 2,
+  EASE_OUT = 3,
+  LINEAR = 4,
+}
+
+export enum ImageTransitionEffect {
+  NONE = 0,
+  CROSS_DISOLVE = 1,
+  FLIP_FROM_LEFT = 2,
+  FLIP_FROM_RIGHT = 3,
+  FLIP_FROM_TOP = 4,
+  FLIP_FROM_BOTTOM = 5,
+  CURL_UP = 6,
+  CURL_DOWN = 7,
+}

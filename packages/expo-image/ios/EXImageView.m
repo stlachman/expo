@@ -1,8 +1,9 @@
 // Copyright 2020-present 650 Industries. All rights reserved.
 
-#import <EXImage/EXImageView.h>
-#import <EXImage/EXImageBorders.h>
-#import <EXImage/EXImageCornerRadii.h>
+#import <SDWebImage/SDWebImage.h>
+#import <ExpoImage/EXImageView.h>
+#import <ExpoImage/EXImageBorders.h>
+#import <ExpoImage/EXImageCornerRadii.h>
 #import <React/RCTConvert.h>
 #import <React/RCTBridge.h>
 #import <React/RCTUIManager.h>
@@ -242,7 +243,7 @@ static NSString * const sourceHeightKey = @"height";
   CGRect bounds = self.bounds;
   [_cornerRadii updateShadowPathForLayer:self.layer bounds:bounds];
   [_cornerRadii updateClipMaskForLayer:_imageView.layer bounds:bounds];
-  
+
   RCTCornerRadii cornerRadii = [_cornerRadii radiiForBounds:bounds];
   [_borders updateLayersForView:_imageView cornerRadii:cornerRadii bounds:bounds cachedLayers:_cachedBorderLayers];
 }

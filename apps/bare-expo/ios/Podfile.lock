@@ -1,8 +1,5 @@
 PODS:
   - boost (1.76.0)
-  - CocoaLumberjack (3.7.4):
-    - CocoaLumberjack/Core (= 3.7.4)
-  - CocoaLumberjack/Core (3.7.4)
   - DoubleConversion (1.1.6)
   - EASClient (0.3.0):
     - ExpoModulesCore
@@ -59,12 +56,6 @@ PODS:
   - EXGL (11.4.0):
     - ExpoModulesCore
     - React-jsi
-  - EXImage (0.2.3):
-    - React-Core
-    - SDWebImage (~> 5.0)
-    - SDWebImageSVGKitPlugin (~> 1.3)
-    - SDWebImageWebPCoder (~> 0.8.4)
-    - SVGKit (~> 2.1)
   - EXImageLoader (3.2.0):
     - ExpoModulesCore
     - React-Core
@@ -175,6 +166,10 @@ PODS:
     - ExpoModulesCore
   - ExpoHaptics (11.3.0):
     - ExpoModulesCore
+  - ExpoImage (0.2.3):
+    - ExpoModulesCore
+    - React-Core
+    - SDWebImage (~> 5.13)
   - ExpoImageManipulator (10.4.0):
     - EXImageLoader
     - ExpoModulesCore
@@ -359,15 +354,6 @@ PODS:
   - GTMSessionFetcher/Core (1.7.2)
   - hermes-engine (0.69.5)
   - libevent (2.1.12)
-  - libwebp (1.2.1):
-    - libwebp/demux (= 1.2.1)
-    - libwebp/mux (= 1.2.1)
-    - libwebp/webp (= 1.2.1)
-  - libwebp/demux (1.2.1):
-    - libwebp/webp
-  - libwebp/mux (1.2.1):
-    - libwebp/demux
-  - libwebp/webp (1.2.1)
   - MLImage (1.0.0-beta2)
   - MLKitCommon (5.0.0):
     - GoogleDataTransport (~> 9.0)
@@ -782,17 +768,9 @@ PODS:
     - React-Core
   - RNSVG (12.3.0):
     - React-Core
-  - SDWebImage (5.13.0):
-    - SDWebImage/Core (= 5.13.0)
-  - SDWebImage/Core (5.13.0)
-  - SDWebImageSVGKitPlugin (1.3.0):
-    - SDWebImage/Core (~> 5.10)
-    - SVGKit (>= 2.1)
-  - SDWebImageWebPCoder (0.8.5):
-    - libwebp (~> 1.0)
-    - SDWebImage/Core (~> 5.10)
-  - SVGKit (2.1.1):
-    - CocoaLumberjack (~> 3.0)
+  - SDWebImage (5.13.2):
+    - SDWebImage/Core (= 5.13.2)
+  - SDWebImage/Core (5.13.2)
   - UMAppLoader (3.1.0)
   - Yoga (1.14.0)
   - ZXingObjC/Core (3.6.5)
@@ -825,7 +803,6 @@ DEPENDENCIES:
   - EXFirebaseCore (from `../../../packages/expo-firebase-core/ios`)
   - EXFont (from `../../../packages/expo-font/ios`)
   - EXGL (from `../../../packages/expo-gl`)
-  - EXImage (from `../../../node_modules/expo-image`)
   - EXImageLoader (from `../../../packages/expo-image-loader/ios`)
   - EXInAppPurchases (from `../../../packages/expo-in-app-purchases/ios`)
   - EXJSONUtils (from `../../../packages/expo-json-utils/ios`)
@@ -847,6 +824,7 @@ DEPENDENCIES:
   - ExpoClipboard (from `../../../packages/expo-clipboard/ios`)
   - ExpoCrypto (from `../../../packages/expo-crypto/ios`)
   - ExpoHaptics (from `../../../packages/expo-haptics/ios`)
+  - ExpoImage (from `../../../packages/expo-image/ios`)
   - ExpoImageManipulator (from `../../../packages/expo-image-manipulator/ios`)
   - ExpoImagePicker (from `../../../packages/expo-image-picker/ios`)
   - ExpoKeepAwake (from `../../../packages/expo-keep-awake/ios`)
@@ -925,12 +903,12 @@ DEPENDENCIES:
   - RNScreens (from `../../../node_modules/react-native-screens`)
   - RNSharedElement (from `../../../node_modules/react-native-shared-element`)
   - RNSVG (from `../../../node_modules/react-native-svg`)
+  - SDWebImage
   - UMAppLoader (from `../../../packages/unimodules-app-loader/ios`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
   trunk:
-    - CocoaLumberjack
     - Firebase
     - FirebaseAnalytics
     - FirebaseCore
@@ -946,7 +924,6 @@ SPEC REPOS:
     - GoogleUtilitiesComponents
     - GTMSessionFetcher
     - libevent
-    - libwebp
     - MLImage
     - MLKitCommon
     - MLKitFaceDetection
@@ -956,9 +933,6 @@ SPEC REPOS:
     - Protobuf
     - Quick
     - SDWebImage
-    - SDWebImageSVGKitPlugin
-    - SDWebImageWebPCoder
-    - SVGKit
     - ZXingObjC
 
 EXTERNAL SOURCES:
@@ -1029,8 +1003,6 @@ EXTERNAL SOURCES:
   EXGL:
     inhibit_warnings: false
     :path: "../../../packages/expo-gl"
-  EXImage:
-    :path: "../../../node_modules/expo-image"
   EXImageLoader:
     inhibit_warnings: false
     :path: "../../../packages/expo-image-loader/ios"
@@ -1087,6 +1059,9 @@ EXTERNAL SOURCES:
   ExpoHaptics:
     inhibit_warnings: false
     :path: "../../../packages/expo-haptics/ios"
+  ExpoImage:
+    inhibit_warnings: false
+    :path: "../../../packages/expo-image/ios"
   ExpoImageManipulator:
     inhibit_warnings: false
     :path: "../../../packages/expo-image-manipulator/ios"
@@ -1269,7 +1244,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost: a7c83b31436843459a1961bfd74b96033dc77234
-  CocoaLumberjack: 543c79c114dadc3b1aba95641d8738b06b05b646
   DoubleConversion: 5189b271737e1565bdce30deb4a08d647e3f5f54
   EASClient: a2581835cf9b97d0defd5d630fc6eb1bf77045e7
   EXApplication: e418d737a036e788510f2c4ad6c10a7d54d18586
@@ -1312,6 +1286,7 @@ SPEC CHECKSUMS:
   ExpoClipboard: 7a5a26a3119bd1d0337ee065db3bf5d8a40e23a1
   ExpoCrypto: e534314db0e1a17ae12b5140d529bd0c5efcbc6a
   ExpoHaptics: efe9e68e9dfe0d15c183c0c70a25f3874124ab9e
+  ExpoImage: f5846e1919e8b4d716223330b9552cce8b76c94d
   ExpoImageManipulator: f4e286afa83c1c618de8701b0812ee0b647895fc
   ExpoImagePicker: ca4207f2952a78e6dac2d7852d7e170dd2eaf1d0
   ExpoKeepAwake: 8b47e5358d54ea4922b630a74f2acb026ab7a28b
@@ -1357,7 +1332,6 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 5595ec75acf5be50814f81e9189490412bad82ba
   hermes-engine: 479687cd0904b24f1b2ae71d1196b44786af5601
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
-  libwebp: 98a37e597e40bfdb4c911fc98f2c53d0b12d05fc
   MLImage: a454f9f8ecfd537783a12f9488f5be1a68820829
   MLKitCommon: 3bc17c6f7d25ce3660f030350b46ae7ec9ebca6e
   MLKitFaceDetection: 617cb847441868a8bfd4b48d751c9b33c1104948
@@ -1410,10 +1384,7 @@ SPEC CHECKSUMS:
   RNScreens: 4a1af06327774490d97342c00aee0c2bafb497b7
   RNSharedElement: eb7d506733952d58634f34c82ec17e82f557e377
   RNSVG: 302bfc9905bd8122f08966dc2ce2d07b7b52b9f8
-  SDWebImage: 0327043dbb9533e75f2eff8445b3df0f2ceca6ac
-  SDWebImageSVGKitPlugin: 8797e1c9b9baf80bd50d28e673e16a12359af1c9
-  SDWebImageWebPCoder: 908b83b6adda48effe7667cd2b7f78c897e5111d
-  SVGKit: 652cdf7bef8bec8564d04a8511d3ab50c7595fac
+  SDWebImage: 72f86271a6f3139cc7e4a89220946489d4b9a866
   UMAppLoader: 6185e8c45922f187002b85afae097961c4781df4
   Yoga: c2b1f2494060865ac1f27e49639e72371b1205fa
   ZXingObjC: fdbb269f25dd2032da343e06f10224d62f537bdb

@@ -1,22 +1,22 @@
 // Copyright 2020-present 650 Industries. All rights reserved.
 
-#import <EXImage/EXImageViewManager.h>
-#import <EXImage/EXImageView.h>
+#import <ExpoImage/EXImageViewManager.h>
+#import <ExpoImage/EXImageView.h>
 #import <React/RCTImageShadowView.h>
-#import "EXImageCustomCoders.h"
+//#import "EXImageCustomCoders.h"
 
 @implementation EXImageViewManager
 
-RCT_EXPORT_MODULE(ExpoImage)
+RCT_EXPORT_MODULE(ExpoImageLegacy)
 
-- (RCTShadowView *)shadowView
-{
-  return [RCTImageShadowView new];
-}
+//- (RCTShadowView *)shadowView
+//{
+//  return [RCTImageShadowView new];
+//}
 
 + (void)initialize
 {
-  [EXImageCustomCoders registerCustomCoders];
+//  [EXImageCustomCoders registerCustomCoders];
 }
 
 RCT_EXPORT_VIEW_PROPERTY(source, NSDictionary)

@@ -29,6 +29,8 @@ abstract_target 'BareExpoMain' do
     ],
   )
 
+  pod 'SDWebImage', :modular_headers => true
+
   # Flags change depending on the env values.
   flags = get_default_flags()
 

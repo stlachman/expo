@@ -1,6 +1,7 @@
 // Copyright 2020-present 650 Industries. All rights reserved.
 
-#import <EXImage/EXImageTypes.h>
+#import <SDWebImage/SDWebImage.h>
+#import <ExpoImage/EXImageTypes.h>
 
 @implementation EXImageTypes
 
