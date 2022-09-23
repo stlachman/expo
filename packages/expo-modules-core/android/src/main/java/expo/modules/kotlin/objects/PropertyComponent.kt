@@ -29,8 +29,7 @@ class PropertyComponent(
   fun attachToJSObject(jsObject: JavaScriptModuleObject) {
     val jniGetter = if (getter != null) {
       JNIFunctionBody {
-        val result = getter.call(emptyArray())
-        return@JNIFunctionBody Arguments.fromJavaArgs(arrayOf(result))
+        return@JNIFunctionBody getter.call(emptyArray())
       }
     } else {
       null

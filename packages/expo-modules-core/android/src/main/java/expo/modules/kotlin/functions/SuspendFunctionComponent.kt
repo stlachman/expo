@@ -52,8 +52,6 @@ class SuspendFunctionComponent(
       argsCount,
       desiredArgsTypes.map { it.getCppRequiredTypes() }.toTypedArray()
     ) { args, bridgePromise ->
-      val kotlinPromise = KPromiseWrapper(bridgePromise as com.facebook.react.bridge.Promise)
-
       val queue = when (queue) {
         Queues.MAIN -> appContext.mainQueue
         Queues.DEFAULT -> appContext.modulesQueue
@@ -66,13 +64,13 @@ class SuspendFunctionComponent(
           }) {
             val result = body.invoke(this, convertArgs(args))
             if (isActive) {
-              kotlinPromise.resolve(result)
+              bridgePromise.resolve(result)
             }
           }
         } catch (e: CodedException) {
-          kotlinPromise.reject(e)
+          bridgePromise.reject(e)
         } catch (e: Throwable) {
-          kotlinPromise.reject(UnexpectedException(e))
+          bridgePromise.reject(UnexpectedException(e))
         }
       }
     }

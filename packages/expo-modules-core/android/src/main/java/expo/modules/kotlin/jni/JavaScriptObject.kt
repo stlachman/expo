@@ -1,6 +1,7 @@
 package expo.modules.kotlin.jni
 
 import com.facebook.jni.HybridData
+import com.facebook.react.bridge.DynamicFromObject
 import expo.modules.core.interfaces.DoNotStrip
 
 /**
