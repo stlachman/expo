@@ -13,7 +13,7 @@ In this chapter, we'll create a modal that shows an emoji picker list.
 
 ## Step 1: Declare a state variable to show buttons
 
-Before implementing the modal, we are going to add three new buttons. These buttons will only be visible when the user picks an image from the media library or decides to use the placeholder image. One of these buttons will trigger the emoji picer modal.
+Before implementing the modal, we are going to add three new buttons. These buttons will only be visible when the user picks an image from the media library or decides to use the placeholder image. One of these buttons will trigger the emoji picker modal.
 
 Declare a state variable called `showAppOptions` in **App.js**. We'll use this variable to show or hide buttons that open the modal alongside a few other options.
 
@@ -98,7 +98,7 @@ Let's break down the layout of the option buttons we will implement in this chap
   containerStyle={{ marginBottom: 10 }}
 />
 
-It contains a parent `<View>` with three buttons aligned in a row. The button in the middle with the plus icon (+) will open the model and is styled differently than the other two buttons.
+It contains a parent `<View>` with three buttons aligned in a row. The button in the middle with the plus icon (+) will open the modal and is styled differently than the other two buttons.
 
 Inside the **components** directory, create a new file called **CircleButton.js** with the following code:
 
@@ -422,7 +422,7 @@ Here is the result after this step:
 
 ## Step 4: Display a list of emoji
 
-Let's implement a horizontal list of emoji in the modal's content. We'll use is the <LinkBase href="https://reactnative.dev/docs/flatlist" openInNewTab>`<FlatList>`</LinkBase> component from React Native for it.
+Let's implement a horizontal list of emoji in the modal's content. We'll use the <LinkBase href="https://reactnative.dev/docs/flatlist" openInNewTab>`<FlatList>`</LinkBase> component from React Native for it.
 
 Create a file named **EmojiList.js** file in the **components** directory and add the following code:
 
@@ -513,7 +513,7 @@ export default function App() {
 }
 ```
 
-The `onSelect` prop on the `<EmojiList>` component selects the emoji and the `onCloseModal` prop closes the modal after emoji is selected.
+The `onSelect` prop on the `<EmojiList>` component selects the emoji and the `onCloseModal` prop closes the modal after an emoji is selected.
 
 Let's take a look at our app on iOS, Android and the web:
 
